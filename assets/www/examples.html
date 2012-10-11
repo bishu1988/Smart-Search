@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+h2 {  
+    text-align:center;
+    }  
+</style>
+
+
+<head>
+<title>Examples</title>
+<script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.0.min.css" />
+<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+<div data-role="content">
+<h2>Examples</h2>
+</div>
+
+
+<div data-role="content">
+<h2>Simple Example</h2>
+<p>Suppose you wanted to find videos of goals scored by Eric Cantona, not involving Liverpool, between the years of 1993 and 1996,
+on Youtube. How would you google that?</p>
+<p>With Smart Search it's simple, enter "Eric Cantona" in the "Main Search" field, type "goals" in the "Related Words" field,
+ enter "www.youtube.com" in the "Website" box, make sure to exclude "Liverpool", and slide the "Year Ranges" to their appropriate
+ positions.</p>
+ <p>Now simply click "Generate Query" and the result will look something like: 
+ "site:www.youtube.com ~goals -Liverpool 1993..1996 Cantona"</p>
+ <p>At this point unfortunately the user has to copy the resulting query into the Google search bar, using the copy and paste function 
+ on Android phones, due to Google's Terms and Conditions.</p>   
+
+</div>
+
+<div data-role="content">
+<form id="test">
+<input type="button" name="query_butt_ex" value="Search" onClick="search()" />
+<input type="button" name="back_butt" value="Back" onClick="back()" />
+</form>
+</div>
+
+<script>
+
+	var ready=false;
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+
+function onDeviceReady(){
+	ready=true;
+	}
+	
+function search(){
+	if(ready){
+	window.plugins.childBrowser.showWebPage("http://smartsearch.t15.org", { showLocationBar: false});
+	}
+}
+
+function back(){
+		if(ready){	
+		history.back();
+}
+}	
+	
+</script>
+
+
+
+
+</div>

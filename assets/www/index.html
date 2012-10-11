@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+h2 {  
+    text-align:center;
+    }  
+</style>
+
+
+<head>
+<title>Smart Search</title>
+<script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.0.min.css" />
+<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+<div data-role="content">
+<h2>Smart Search</h2>
+
+<div data-role="content">
+<form id="test">
+<input type="button" name="query_butt" value="Search" onClick="start_search()" />
+<input type="button" name="example_butt" value="Example" onClick="show_example()" />
+<input type="button" name="exit_butt" value="Exit" onClick="quit()" />
+</form>
+</div>
+
+
+</div>
+<script>
+
+	var ready=false;
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+
+function onDeviceReady(){
+	ready=true;
+	}
+	
+function start_search(){
+	if(ready){
+	window.plugins.childBrowser.showWebPage("http://smartsearch.t15.org", { showLocationBar: false});
+	}
+}
+
+function show_example(){
+		if(ready){	
+		window.open("examples.html");
+}
+}	
+
+function quit(){
+navigator.app.exitApp();	
+}
+</script>
+
+</div>
+</body>
+</html>
